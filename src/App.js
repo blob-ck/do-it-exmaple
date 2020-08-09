@@ -1,15 +1,11 @@
 import React from 'react';
-import './App.css';
+import TodaysPlan from './03/TodaysPlan';
 
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <img
-          src="http://3.bp.blogspot.com/-JXHpRRPAxMw/UV180EDkphI/AAAAAAAAVBE/ovMn6mWUQXw/s1600/LucasArts_GoldGuy_logo_purple.jpg"
-          alt="이미지"
-        />
-        <div>안녕하세요~</div>
+      <div className="body">
+        <TodaysPlan />
       </div>
     );
   }
