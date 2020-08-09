@@ -5,7 +5,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="body">
-        <TodaysPlan />
+        <TodaysPlan name="message" />
       </div>
     );
   }
