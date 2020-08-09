@@ -1,7 +1,7 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class BooleanComponent extends PureComponent {
+class BooleanComponent extends React.Component {
   render() {
     const message = this.props.bored ? '놀러 가즈아' : '마무리 다 했어?';
     return <div className="message-container">{message}</div>;
