@@ -1,11 +1,15 @@
 import React from 'react';
-import DefaultPropsComponent from './03/DefaultPropsComponent';
+import ChildProperty from './03/ChildProperty';
 
 class App extends React.Component {
   render() {
     return (
       <div className="body">
-        <DefaultPropsComponent />
+        <ChildProperty children={<h1>이렇게 보내면 뭘 받을까?</h1>}>
+          <div>
+            <span>자식노드</span>
+          </div>
+        </ChildProperty>
       </div>
     );
   }
