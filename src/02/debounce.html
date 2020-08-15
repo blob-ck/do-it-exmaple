@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <script src="./excercise.js"></script>
+  </head>
+  <body>
+    <div><input type="text" id="input" /></div>
+    <div>
+      <span id="span"><ul id="ul"></ul></span>
+    </div>
+  </body>
+  <script>
+    window.onload = function () {
+      const run = debounce((e) => {
+        const value = e.target.value;
+        if (!String(value).trim() && value != 0) return;
+
+        //아래 로직 대신 서버요청을 날리면 debounce 검색 이벤트
+        const li = document.createElement('li');
+        li.innerHTML = value;
+        document.querySelector('#ul').appendChild(li);
+        e.target.value = null;
+      }, 500);
+
+      document.querySelector('#input').addEventListener('keyup', run);
+    };
+  </script>
+</html>
