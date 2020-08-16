@@ -12,7 +12,7 @@ class ForceUpdateExample extends Component {
 
     //forceUpdate를 사용하려면
     //this.state.loading, this.state.formData 로 초기화 하지 않고 클래스 변수에 직접 초기화 한다.
-    this.loading = false;
+    this.loading = true;
     this.formData = 'no data';
     this.handleData = this.handleData.bind(this);
     setTimeout(this.handleData, 4000);
