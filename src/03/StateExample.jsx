@@ -15,16 +15,21 @@ class StateExample extends Component {
       loading: true,
       formData: 'no data',
     };
-    this.handleData = this.handleData.bind(this); // 함수의 인자로 넘어갈 this는 반드시 생성자에서 bind 로 묶어야 함
+
+    // 함수의 인자로 넘어갈 this는 반드시 생성자에서 bind 로 묶어야 함.
+    this.handleData = this.handleData.bind(this);
+
     setTimeout(this.handleData, 4000);
   }
 
-  handleData() {
-    const data = 'new Data';
-    const { formData } = this.state;
-    this.setState({
-      loading: false,
-      formData: data + formData,
+  handleData(data) {
+    //setState 인자로 함수를 넘기면, 그 함수의 인자로 바로직전 state를 넘긴다.
+    this.setState(function (prevState) {
+      const newState = {
+        loading: false,
+        formData: data + prevState.formData,
+      };
+      return newState;
     });
 
     console.log('loading값 : ', this.state.loading);
