@@ -24,13 +24,10 @@ class StateExample extends Component {
 
   handleData(data) {
     //setState 인자로 함수를 넘기면, 그 함수의 인자로 바로직전 state를 넘긴다.
-    this.setState(function (prevState) {
-      const newState = {
-        loading: false,
-        formData: data + prevState.formData,
-      };
-      return newState;
-    });
+    this.setState((prevState) => ({
+      loading: false,
+      formData: data + prevState.formData,
+    }));
 
     console.log('loading값 : ', this.state.loading);
   }
