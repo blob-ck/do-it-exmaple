@@ -28,7 +28,7 @@ class LifeCycleExample extends Component {
   }
   shouldComponentUpdate() {
     console.log('shouldComponentUpdate 호출');
-    return true;
+    return false;
   }
   render() {
     console.log('render 호출');
