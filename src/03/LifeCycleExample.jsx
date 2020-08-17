@@ -14,7 +14,7 @@ class LifeCycleExample extends Component {
   }
   componentDidMount() {
     console.log('componentDidMount 호출');
-    this.setState({ updated: true });
+    this.forceUpdate();
   }
   componentDidUpdate() {
     console.log('componentDidUpdate 호출');
