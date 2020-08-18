@@ -1,19 +1,27 @@
 import React from 'react';
-import LifeCycleExample from './03/LifeCycleExample';
+import Counter from './03/Counter';
+import NewCounter from './03/NewCounter';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { hasDestroyed: false };
+    this.state = { count: 10 };
+    this.resetCount = this.resetCount.bind(this);
   }
 
-  componentDidMount() {
-    console.log('> App componentDidMount() => this.setState({ hasDestroyed: true })');
-    this.setState({ hasDestroyed: true });
+  resetCount() {
+    this.setState(({ count }) => ({ count: count + 10 }));
   }
 
   render() {
-    return <div className="body">{this.state.hasDestroyed ? null : <LifeCycleExample />}</div>;
+    return (
+      <div>
+        <Counter count={this.state.count} />
+        {/*Counter 컴포넌트와의 차이점: getDerivedStateFromProps 를 통해 상위컴포넌트의 props 변화를 감지한다.*/}
+        <NewCounter count={this.state.count} />
+        <button onClick={this.resetCount}>{this.state.count + 10}로 초기화</button>
+      </div>
+    );
   }
 }
 
