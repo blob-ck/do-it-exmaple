@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class LifeCycleExample extends Component {
+class LifeCycleExample extends React.Component {
   static getDerivedStateFromProps() {
     console.log('getDerivedStateFromProps 호출');
     return {};
@@ -14,13 +14,13 @@ class LifeCycleExample extends Component {
   }
   componentDidMount() {
     console.log('componentDidMount 호출');
-    this.forceUpdate();
+    //this.forceUpdate();
   }
   componentDidUpdate() {
     console.log('componentDidUpdate 호출');
   }
-  componentWillMount() {
-    console.log('componentWillMount 호출');
+  componentWillUnmount() {
+    console.log('componentWillUnmount 호출');
   }
   getSnapshotBeforeUpdate() {
     console.log('getSnapshotBeforeUpdate 호출');
@@ -28,7 +28,8 @@ class LifeCycleExample extends Component {
   }
   shouldComponentUpdate() {
     console.log('shouldComponentUpdate 호출');
-    return false;
+    //return false;
+    return true;
   }
   render() {
     console.log('render 호출');
