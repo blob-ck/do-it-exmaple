@@ -1,25 +1,67 @@
-import React from 'react';
-import Counter from './03/Counter';
-import NewCounter from './03/NewCounter';
+import React, { Component, PureComponent } from 'react';
 
-class App extends React.Component {
+class MyComponent extends Component {
+  componentDidUpdate() {
+    console.log(`MyComponent 새로 고침! => ${this.props.value}`);
+  }
+  render() {
+    const { value } = this.props;
+    return (
+      <div>
+        <p>MyComponent</p>
+        {value.map((e) => (
+          <li key={e.name + 2}>{e.name}</li>
+        ))}
+      </div>
+    );
+  }
+}
+
+class MyPureComponent extends PureComponent {
+  componentDidUpdate() {
+    console.log(`MyPureComponent 새로 고침! => ${this.props.value}`);
+  }
+  render() {
+    const { value } = this.props;
+    return (
+      <div>
+        <p>MyPureComponent</p>
+        {value.map((e) => (
+          <li key={e.name + 2}>{e.name}</li>
+        ))}
+      </div>
+    );
+  }
+}
+
+class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { count: 10 };
-    this.resetCount = this.resetCount.bind(this);
+    this.listValue = [{ name: 'Park' }, { name: 'Lee' }];
+    this.state = { version: 0 };
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  resetCount() {
-    this.setState(({ count }) => ({ count: count + 10 }));
+  handleClick() {
+    setTimeout(() => {
+      // MyPureComponent 는 얕은 비교를 하므로, shouldComponentUpdate() === false
+      this.listValue[0].name = 'Jason';
+      this.setState({ version: 1 });
+    }, 1000);
+    setTimeout(() => {
+      // 새 배열로 초기화 하므로, 두 컴포넌트 모두 shouldComponentUpdate() === true
+      this.listValue = [{ name: 'Jason' }, { name: 'Lee' }];
+      this.setState({ version: 2 });
+    }, 2000);
   }
 
   render() {
     return (
       <div>
-        <Counter count={this.state.count} />
-        {/*Counter 컴포넌트와의 차이점: getDerivedStateFromProps 를 통해 상위컴포넌트의 props 변화를 감지한다.*/}
-        <NewCounter count={this.state.count} />
-        <button onClick={this.resetCount}>{this.state.count + 10}로 초기화</button>
+        <p>version: {this.state.version}</p>
+        <MyComponent value={this.listValue} />
+        <MyPureComponent value={this.listValue} />
+        <button onClick={this.handleClick}>버튼</button>
       </div>
     );
   }
