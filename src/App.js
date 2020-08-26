@@ -1,36 +1,28 @@
 import React, { Component, PureComponent } from 'react';
 
 class MyComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.value = props.value;
+  }
   componentDidUpdate() {
-    console.log(`MyComponent 새로 고침! => ${this.props.value}`);
+    console.log(`MyComponent 새로 고침! ${this.props.value}`);
   }
   render() {
-    const { value } = this.props;
-    return (
-      <div>
-        <p>MyComponent</p>
-        {value.map((e) => (
-          <li key={e.name + 2}>{e.name}</li>
-        ))}
-      </div>
-    );
+    return null;
   }
 }
 
 class MyPureComponent extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.value = props.value;
+  }
   componentDidUpdate() {
-    console.log(`MyPureComponent 새로 고침! => ${this.props.value}`);
+    console.log(`MyPureComponent 새로 고침! ${this.props.value}`);
   }
   render() {
-    const { value } = this.props;
-    return (
-      <div>
-        <p>MyPureComponent</p>
-        {value.map((e) => (
-          <li key={e.name + 2}>{e.name}</li>
-        ))}
-      </div>
-    );
+    return null;
   }
 }
 
@@ -58,7 +50,6 @@ class App extends Component {
   render() {
     return (
       <div>
-        <p>version: {this.state.version}</p>
         <MyComponent value={this.listValue} />
         <MyPureComponent value={this.listValue} />
         <button onClick={this.handleClick}>버튼</button>
