@@ -8,7 +8,7 @@ function loadStories() {
   //contextReq 는 require와 동일한 역할을 한다.
   // 가변경로를 사용할 때  사용
   const contextReq = require.context('../src/stories', true, /Story\.jsx$/);
-  context.keys().forEach((srcFile) => {
+  contextReq.keys().forEach((srcFile) => {
     //contextReq 로 import 한 파일 중 default 항목을 import 한다.
     interopRequireDefault(contextReq(srcFile));
   });
