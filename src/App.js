@@ -1,4 +1,5 @@
 import React from 'react';
+import './materialize.css';
 
 class App extends React.Component {
   render() {
