@@ -2,6 +2,8 @@ import { configure, setAddon } from '@storybook/react';
 import interopRequireDefault from 'babel-runtime/helpers/interopRequireDefault';
 import JSXAddon from 'storybook-addon-jsx';
 
+import '../src/sass/materialize.scss';
+
 function loadStories() {
   //매번 스토리 추가를 수동으로 하기 번거로우므로,
   //경로설정을 통해 자동으로 스토리북에 스토리를 추가함
