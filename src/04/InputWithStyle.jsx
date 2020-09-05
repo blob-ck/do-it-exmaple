@@ -34,14 +34,17 @@ class Input extends Component {
       <div className="input-field">
         <input
           id={`input_${name}`}
-          className="validate"
+          className={`validate ${errorMessage && 'invalid'}`}
           name={name}
           ref={this.setRef}
           onChange={this.handleChange}
           value={value}
           type={type}
+          onFocus={onFocus}
         />
-        <label htmlFor={`input_${name}`}>{label}</label>
+        <label className="active" for={`input_${name}`}>
+          {label}
+        </label>
         {errorMessage && <span className="helper-text">{errorMessage}</span>}
       </div>
     );
