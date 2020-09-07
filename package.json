@@ -17,7 +17,7 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.4.1",
     "react-test-renderer": "^16.7.0",
-    "react-with-styles": "^3.2.1",
+    "react-with-styles": "^4.1.0",
     "recompose": "^0.30.0",
     "redux": "^4.0.1",
     "redux-pack": "^0.1.5",
@@ -48,11 +48,11 @@
     "@storybook/addon-actions": "5.3.19",
     "@storybook/addons": "5.3.19",
     "@storybook/react": "5.2.0",
-    "aphrodite": "2.4.0",
+    "aphrodite": "^2.4.0",
     "babel-loader": "8.1.0",
     "json-server": "0.16.1",
     "node-sass": "4.14.1",
-    "react-with-styles-interface-aphrodite": "6.0.1",
+    "react-with-styles-interface-aphrodite": "^6.0.1",
     "sass-loader": "^10.0.2",
     "storybook-addon-jsx": "^7.3.4"
   }
