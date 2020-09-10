@@ -1,4 +1,26 @@
+export const LARGE_AND_ABOVE = 'largeAndAbove';
+const BREAKPOINT_NAMES = {
+  LARGE: 'large',
+  MEDIUM: 'medium',
+  SMALL: 'small',
+};
+
+const breakpoints = {
+  [BREAKPOINT_NAMES.LARGE]: 1128,
+  [BREAKPOINT_NAMES.MEDIUM]: 744,
+  [BREAKPOINT_NAMES.SMALL]: 327,
+};
+
+const responsive = {
+  [LARGE_AND_ABOVE]: `@media (min-width: ${breakpoints[BREAKPOINT_NAMES.LARGE]}px)`,
+  [BREAKPOINT_NAMES.SMALL]: `@media (max-width: ${breakpoints[BREAKPOINT_NAMES.MEDIUM] - 1}px)`,
+  print: `@media print`,
+};
+
 export default {
+  //반응형 미디어 속성
+  responsive,
+
   //색상
   color: {
     primary: '#03a9f4',
