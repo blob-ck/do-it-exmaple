@@ -10,12 +10,7 @@ import Input from '../../03/Input';
 describe('<Input>', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    /**
-     * console.error node_modules/prop-types/checkPropTypes.js:20
-     * Warning: Failed prop type: The prop `name` is marked as required in `Input`, but its value is `undefined`.
-     * in Input (at Input.test.jsx:13)
-     */
-    ReactDOM.render(<Input />, div);
+    ReactDOM.render(<Input name="name" />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 });
