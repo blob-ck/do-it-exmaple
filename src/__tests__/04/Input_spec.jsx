@@ -16,6 +16,16 @@ describe('<Input>', () => {
     expect(wrapper.length).toEqual(1);
     expect(wrapper).toHaveLength(1);
   });
+
+  describe('contains <input>', () => {
+    it('renders one input', () => {
+      //shallow() 는 enzyme 객체를 반환
+      //fine() 는 enzyme 의 함수, 엘리먼트 배열반환
+      const wrapper = shallow(<Input name="test_name" />);
+      expect(wrapper.find('input')).toHaveLength(1);
+      expect(wrapper.find('label')).toHaveLength(1);
+    });
+  });
 });
 
 /******************************************************************************************
