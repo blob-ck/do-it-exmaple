@@ -6,6 +6,13 @@ import '@testing-library/jest-dom/extend-expect';
 
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16.3';
+import * as Aphrodite from 'aphrodite';
+import * as AphroditeNoImportant from 'aphrodite/no-important';
+
+//withStyles 함수에 적용된 Aphrodite 라이브러리는 테스트 환경에 없는 DOM 함수를 포함하므로,
+//Aphrodite의 StyleInjection함수인 document.querySelector()를 건너뛰도록 설정
+Aphrodite.StyleSheetTestUtils.suppressStyleInjection();
+AphroditeNoImportant.StyleSheetTestUtils.suppressStyleInjection();
 
 configure({ adapter: new Adapter() });
 

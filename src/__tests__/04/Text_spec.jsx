@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import Text from '../../04/Text';
 
@@ -11,6 +11,7 @@ describe('<Text>', () => {
   });
 
   it('contains <span>', () => {
-    expect(shallow(<Text>텍스트</Text>).find('span')).toHaveLength(1);
+    //Aphrodite 의 StyleInjection 무시(테스트환경에 없는 함수 호출 건너뛰기 ex:document.querySelector)
+    expect(mount(<Text>텍스트</Text>).find('span')).toHaveLength(1);
   });
 });
