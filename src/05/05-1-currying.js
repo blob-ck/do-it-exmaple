@@ -32,4 +32,5 @@ const result2 = formula2(10);
 // formula2 는 뒤에서부터 계산을 추적해야 검증할 수 있으므로, 흐름을 한 번에 이해하기 힘듦
 // => 코드 가독성이 떨어지므로 Array.prototype.reduce() 를 활용하여 compose() 를 만들어 사용
 // => 05-1-compose.js 참조
-console.log(result === result2);
+console.log(result); // 64
+console.log(result === result2); // true
